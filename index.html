@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>湖南方志动态语料库</title>
+<meta charset="UTF-8">
+<title>湖南方志语料库</title>
+
 <style>
+/* 页面整体背景 */
 body {
   background-image: url("bg2.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+/* 半透明白底内容框 */
+.content-box {
+  background-color: rgba(255, 255, 255, 0.78);
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+/* 标题居中 */
+h1, h2 {
+  text-align: center;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 26px;
+}
+
+/* 正文靠左 */
+p, ul {
+  text-align: left;
+}
+
+/* 地区列表样式 */
+ul {
+  padding-left: 20px;
+}
+li {
+  margin-bottom: 10px;
+}
+
+/* 搜索框 */
+#searchInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  margin: 20px 0;
 }
 </style>
-
 </head>
-<body style="background-image:url('bg2.png'); background-size:cover;">
 
+<body>
+
+<div class="content-box">
 
 <h1>湖南方志动态语料库</h1>
 
@@ -27,20 +75,39 @@ body {
 </p>
 
 <h2>地区目录</h2>
+
+<input type="text" id="searchInput" placeholder="输入地区 / 方言 / 方志名称进行检索">
+
 <ul>
-    <li><a href="yueyang.html">岳阳</a></li>
-    <li><a href="yiyang.html">益阳</a></li>
-    <li><a href="changde.html">常德</a></li>
-    <li><a href="hengyang.html">衡阳</a></li>
-    <li><a href="shaoyang.html">邵阳</a></li>
-    <li><a href="yongzhou.html">永州</a></li>
-    <li><a href="chenzhou.html">郴州</a></li>
-    <li><a href="huaihua.html">怀化</a></li>
-    <li><a href="xiangxi.html">湘西</a></li>
-    <li><a href="changzhutan.html">长株潭</a></li>
+  <li class="item"><a href="yueyang.html">岳阳</a></li>
+  <li class="item"><a href="yiyang.html">益阳</a></li>
+  <li class="item"><a href="changde.html">常德</a></li>
+  <li class="item"><a href="hengyang.html">衡阳</a></li>
+  <li class="item"><a href="shaoyang.html">邵阳</a></li>
+  <li class="item"><a href="yongzhou.html">永州</a></li>
+  <li class="item"><a href="chenzhou.html">郴州</a></li>
+  <li class="item"><a href="huaihua.html">怀化</a></li>
+  <li class="item"><a href="xiangxi.html">湘西</a></li>
+  <li class="item"><a href="changzhutan.html">长株潭</a></li>
 </ul>
 
 <p>建设者：个人学术整理（示例）</p>
+
+</div>
+
+<script>
+document.getElementById("searchInput").addEventListener("input", function () {
+  const keyword = this.value;
+  const items = document.getElementsByClassName("item");
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].innerText.indexOf(keyword) > -1) {
+      items[i].style.display = "";
+    } else {
+      items[i].style.display = "none";
+    }
+  }
+});
+</script>
 
 </body>
 </html>
