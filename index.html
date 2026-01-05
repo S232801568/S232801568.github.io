@@ -5,57 +5,54 @@
 <title>湖南方志语料库</title>
 
 <style>
-/* 页面整体背景 */
 body {
   background-image: url("bg2.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   font-size: 20px;
-  line-height: 1.8;
+  line-height: 1.9;
   margin: 0;
   padding: 0;
 }
 
-/* 半透明白底内容框 */
+/* 半透明白底 */
 .content-box {
-  background-color: rgba(255, 255, 255, 0.78);
+  background-color: rgba(255, 255, 255, 0.8);
   max-width: 900px;
   margin: 40px auto;
-  padding: 30px;
-  border-radius: 14px;
+  padding: 40px;
+  border-radius: 16px;
 }
 
 /* 标题居中 */
 h1, h2 {
   text-align: center;
 }
-h1 {
-  font-size: 36px;
-}
-h2 {
-  font-size: 26px;
-}
+h1 { font-size: 36px; }
+h2 { font-size: 26px; }
 
-/* 正文靠左 */
-p, ul {
+/* 正文靠左（带明显缩进，用来确认是否生效） */
+p {
   text-align: left;
+  text-indent: 2em;
 }
 
-/* 地区列表样式 */
+/* 列表靠左 */
 ul {
-  padding-left: 20px;
+  text-align: left;
+  padding-left: 2em;
 }
 li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* 搜索框 */
 #searchInput {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   font-size: 18px;
-  margin: 20px 0;
+  margin: 24px 0;
 }
 </style>
 </head>
@@ -69,6 +66,7 @@ li {
 <p>这是一个持续建设中的湖南地方志语言语料库。</p>
 
 <h2>语料库简介</h2>
+
 <p>
 本语料库收录明清以来湖南地方志中的语言材料，
 包括方言词语、俗语、与语音有关的记载。
@@ -79,16 +77,16 @@ li {
 <input type="text" id="searchInput" placeholder="输入地区 / 方言 / 方志名称进行检索">
 
 <ul>
-  <li class="item"><a href="yueyang.html">岳阳</a></li>
-  <li class="item"><a href="yiyang.html">益阳</a></li>
-  <li class="item"><a href="changde.html">常德</a></li>
-  <li class="item"><a href="hengyang.html">衡阳</a></li>
-  <li class="item"><a href="shaoyang.html">邵阳</a></li>
-  <li class="item"><a href="yongzhou.html">永州</a></li>
-  <li class="item"><a href="chenzhou.html">郴州</a></li>
-  <li class="item"><a href="huaihua.html">怀化</a></li>
-  <li class="item"><a href="xiangxi.html">湘西</a></li>
-  <li class="item"><a href="changzhutan.html">长株潭</a></li>
+  <li class="item"><a href="yueyang.html">岳阳（湘语·长益片）</a></li>
+  <li class="item"><a href="yiyang.html">益阳（湘语·长益片）</a></li>
+  <li class="item"><a href="changde.html">常德（西南官话）</a></li>
+  <li class="item"><a href="hengyang.html">衡阳（湘语·衡州片）</a></li>
+  <li class="item"><a href="shaoyang.html">邵阳（湘语·娄邵片）</a></li>
+  <li class="item"><a href="yongzhou.html">永州（土话 / 乡话）</a></li>
+  <li class="item"><a href="chenzhou.html">郴州（西南官话 / 赣语）</a></li>
+  <li class="item"><a href="huaihua.html">怀化（湘语·辰溆片）</a></li>
+  <li class="item"><a href="xiangxi.html">湘西（西南官话）</a></li>
+  <li class="item"><a href="changzhutan.html">长株潭（湘语·长益片）</a></li>
 </ul>
 
 <p>建设者：个人学术整理（示例）</p>
@@ -100,11 +98,8 @@ document.getElementById("searchInput").addEventListener("input", function () {
   const keyword = this.value;
   const items = document.getElementsByClassName("item");
   for (let i = 0; i < items.length; i++) {
-    if (items[i].innerText.indexOf(keyword) > -1) {
-      items[i].style.display = "";
-    } else {
-      items[i].style.display = "none";
-    }
+    items[i].style.display =
+      items[i].innerText.indexOf(keyword) > -1 ? "" : "none";
   }
 });
 </script>
