@@ -40,36 +40,49 @@ body{
 h1{
   text-align:center;
   font-size:38px;
-  margin-bottom:30px;
-}
-
-h2{
-  font-size:26px;
-  margin-top:40px;
+  margin-bottom:40px;
 }
 
 /* 检索框 */
 .search-box{
   text-align:center;
-  margin:30px 0;
+  margin-bottom:40px;
 }
 .search-box input{
   width:70%;
-  padding:12px;
-  font-size:20px;
+  padding:14px;
+  font-size:22px;
 }
 
-/* 地区列表 */
-.region-list{
+/* 地区目录：横向排列 */
+.region-grid{
+  display:grid;
+  grid-template-columns:repeat(5, 1fr);
+  gap:20px;
   list-style:none;
   padding:0;
+  margin:0;
+  text-align:center;
 }
-.region-list li{
-  margin:12px 0;
+.region-grid li{
+  padding:12px 0;
 }
-.region-list a{
+.region-grid a{
   text-decoration:none;
   color:#000;
+  font-size:22px;
+}
+
+/* 响应式：屏幕小自动换行 */
+@media (max-width:900px){
+  .region-grid{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
+@media (max-width:600px){
+  .region-grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
 }
 </style>
 
@@ -108,30 +121,24 @@ function searchRegion(){
     placeholder="输入 地区 / 方志名称 / 词条 进行检索">
 </div>
 
-<h2>语料库简介</h2>
-<p>
-这是一个持续建设中的湖南地方志语言语料库。
-收录明清以来湖南地方志中的语言材料，
-包括方言词语、俗语、与语音有关的记载。
-</p>
-
-<h2>地区目录</h2>
-<ul class="region-list">
-  <li class="region-item"><a href="yueyang.html">岳阳</a></li>
-  <li class="region-item"><a href="yiyang.html">益阳</a></li>
-  <li class="region-item"><a href="changde.html">常德</a></li>
-  <li class="region-item"><a href="changzhutan.html">长株潭</a></li>
+<ul class="region-grid">
+  <li class="region-item"><a href="changsha.html">长沙</a></li>
+  <li class="region-item"><a href="zhuzhou.html">株洲</a></li>
+  <li class="region-item"><a href="xiangtan.html">湘潭</a></li>
   <li class="region-item"><a href="hengyang.html">衡阳</a></li>
   <li class="region-item"><a href="shaoyang.html">邵阳</a></li>
-  <li class="region-item"><a href="yongzhou.html">永州</a></li>
+
+  <li class="region-item"><a href="yueyang.html">岳阳</a></li>
+  <li class="region-item"><a href="changde.html">常德</a></li>
+  <li class="region-item"><a href="zhangjiajie.html">张家界</a></li>
+  <li class="region-item"><a href="yiyang.html">益阳</a></li>
   <li class="region-item"><a href="chenzhou.html">郴州</a></li>
+
+  <li class="region-item"><a href="yongzhou.html">永州</a></li>
   <li class="region-item"><a href="huaihua.html">怀化</a></li>
+  <li class="region-item"><a href="loudi.html">娄底</a></li>
   <li class="region-item"><a href="xiangxi.html">湘西</a></li>
 </ul>
-
-<p style="margin-top:40px;">
-建设者：个人学术整理
-</p>
 
 </div>
 
